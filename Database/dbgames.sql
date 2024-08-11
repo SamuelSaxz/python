@@ -22,13 +22,13 @@ CREATE TABLE cards(
 );
 
 CREATE TABLE decks(
-  deck_id BIGINT UNSIGNED NOT NULL,
+  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  decks_id BIGINT UNSIGNED NOT NULL,
   card_id BIGINT UNSIGNED NOT NULL,
   `order` INT NOT NULL,
   created_at DATETIME NOT NULL,
   updated_at DATETIME NOT NULL,
-  PRIMARY KEY (deck_id, card_id),
-  UNIQUE (card_id, deck_id),
+  UNIQUE (card_id, decks_id),
   FOREIGN KEY (card_id) REFERENCES cards(id)
 );
 
@@ -38,8 +38,8 @@ CREATE TABLE games(
   description VARCHAR(255) NOT NULL,
   deck_id BIGINT UNSIGNED NOT NULL,
   created_at DATETIME NOT NULL,
-  updated_at DATETIME NOT NULL,
-  FOREIGN KEY (deck_id) REFERENCES decks(deck_id)
+  updated_at DATETIME NOT NULL
+#   FOREIGN KEY (deck_id) REFERENCES decks(decks_id)
 );
 
 CREATE TABLE parties(
