@@ -4,8 +4,8 @@ class Database:
     def __init__(self):
         self.host = 'localhost'
         self.user = 'root'
-        self.password = ''
-        self.database = 'dbgames'
+        self.password = 'root'
+        self.database = 'dbshop'
         self.port = 3306
         self.connection = None
         self.connect()
